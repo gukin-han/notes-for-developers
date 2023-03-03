@@ -7,5 +7,4 @@
 
 ## Useful Reading
 > 📌 The useful reading section contains different types of written material such as articles, links to e-books and publications on the subject of the practice and theory of computer science.  
-  
 1. [Sarfraz et al., (2009), Stack Overflow, "What is the difference between an interface and abstract class?".](https://stackoverflow.com/questions/1913098/what-is-the-difference-between-an-interface-and-abstract-class)
