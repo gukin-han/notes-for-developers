@@ -1,3 +1,66 @@
+- [Java 기초](#java-기초)
+  - [변수와 자료형](#변수와-자료형)
+  - [여러가지 연산자](#여러가지-연산자)
+  - [조건문](#조건문)
+  - [반복문](#반복문)
+  - [다차원 배열](#다차원-배열)
+  - [📂 클래스와 객체](#클래스와-객체)
+    - [📄 클래스 (class)](#클래스-class)
+    - [📄 객체, 인스턴스](#객체-인스턴스)
+    - [📄 클래스 사용](#클래스-사용)
+    - [📌 `this`, `this()`](#this-this)
+    - [📄 생성자](#생성자)
+    - [💻 실습](#실습)
+    - [📌 오버로딩 (Overloading)](#오버로딩-overloading)
+    - [💻 실습](#실습-1)
+    - [📄 접근제한자 (Access Modifier)](#접근제한자-access-modifier)
+    - [📌 Static](#static)
+    - [**💻 실습**](#실습-2)
+  - [📂 상속](#상속)
+    - [📄 상속 (Inheritance)](#상속-inheritance)
+    - [📌 `super`, `super()`](#super-super)
+    - [📌 오버라이딩 (Overriding)](#오버라이딩-overriding)
+    - [**💻 실습**](#실습-3)
+  - [📂 다형성](#다형성)
+    - [📄 다형성 (Polymorphism)](#다형성-polymorphism)
+    - [💻 **실습**](#실습-4)
+    - [📄 `instanceof`](#instanceof)
+    - [**💻 실습**](#실습-5)
+  - [📂 추상 클래스](#추상-클래스)
+    - [📄 추상 메소드 (Abstract Method)](#추상-메소드-abstract-method)
+    - [📄 추상 클래스 (Abstract class)](#추상-클래스-abstract-class)
+    - [💻 추상 클래스 실습](#추상-클래스-실습)
+  - [📂 인터페이스](#인터페이스)
+    - [📄 인터페이스](#인터페이스-1)
+    - [📄 상속과 인터페이스 동시 사용](#상속과-인터페이스-동시-사용)
+    - [💻 실습](#실습-6)
+  - [📂 내부 클래스, 익명 클래스](#내부-클래스-익명-클래스)
+    - [📄 내부 클래스 (Inner Class)](#내부-클래스-inner-class)
+    - [📄 익명 클래스 (Anonymous class)](#익명-클래스-anonymous-class)
+    - [💻 실습](#실습-7)
+  - [✅ 입출력](#입출력)
+    - [콘솔 입력](#콘솔-입력)
+    - [콘솔 출력](#콘솔-출력)
+    - [실습](#실습-8)
+    - [정수, 문자열 변환](#정수-문자열-변환)
+    - [출력 포맷](#출력-포맷)
+  - [✅ 파일 입출력](#파일-입출력)
+    - [파일 출력](#파일-출력)
+    - [파일 입력](#파일-입력)
+    - [실습 - 파일 쓰기](#실습---파일-쓰기)
+    - [실습 - 파일 읽기](#실습---파일-읽기)
+    - [Practice](#practice)
+  - [✅ 예외 처리](#예외-처리)
+    - [예외 (Exception)](#예외-exception)
+    - [예외 처리 (Exception Handling)](#예외-처리-exception-handling)
+    - [finally](#finally)
+    - [throw, throws](#throw-throws)
+    - [실습](#실습-9)
+  - [컬렉션 프레임워크](#컬렉션-프레임워크)
+  - [람다식](#람다식)
+  - [스트림](#스트림)
+  - [연습 문제](#연습-문제)
+
 # Java 기초
 
 ## 변수와 자료형
@@ -989,9 +1052,331 @@ public class Main {
 }
 ```
 
-## 입출력
+## ✅ 입출력
 
-## 예외 처리
+- 콘솔 입출력 방법에 대해 직접 구현
+
+> 콘솔: I/O 장치?
+> 
+
+### 콘솔 입력
+
+- 입출력 방식 중 콘솔 입력 방법
+    - `System.in.read()`
+    - `InputStreamReader reader = …`
+    - `BufferedReader br = …`
+    - 📌 `Scanner = …`
+
+### 콘솔 출력
+
+- 입출력 방식 중 콘솔 출력 방법
+    - `Sytem.out.println();`
+    - `System.out.print();`
+    - `System.out.printf();`
+
+### 실습
+
+- `System.in.read()`
+
+```java
+jshell> int a = System.in.read() - '0';
+123
+a ==> 1
+jshell> System.in.read(new byte[System.in.available()]);
+$18 ==> 0
+```
+
+- `System.in.read()`는 char를 받는다? 받았을때 ‘1’으로 받기 때문에 ‘1’ - ‘0’을 하게되면 1을 반환한다.
+- 만약 1을 입력하고 enter를 누르면 a에 int 1값이 저장되는데, enter도 input으로 간주되며
+- enter 값은 처리되지 않고 그대로 남아있기 때문에 `System.in.avaiable()`로 소진시켜야한다.
+- 그렇지 않으면 다음 입력에 포함이 된다.
+- `InputStreamReader reader = …`
+
+```java
+jshell> InputStreamReader reader = new InputStreamReader(System.in);
+reader ==> java.io.InputStreamReader@6f2b958e
+
+jshell> char[] c = new char[3];
+c ==> char[3] { '\000', '\000', '\000' }
+
+jshell> reader.read(c);
+123456
+$21 ==> 1
+```
+
+- 만들어놓은 char 배열만큼 입력을 받을 수 있다.
+- `BufferedReader br = …`
+
+```java
+jshell> BufferedReader br = new BufferedReader(new InputStreamReader(System.in))
+
+br ==> java.io.BufferedReader@cac736f
+
+jshell> String s1 = br.readLine();
+123456
+s1 ==> "123456"
+```
+
+- 배열을 따로 만들 필요 없이 입력받은 만큼 받아들일 수 있다.
+- `Scanner`
+
+### 정수, 문자열 변환
+
+```java
+int num = Integer.parseInt("12345");
+String str = Integer.toString(12345);
+```
+
+### 출력 포맷
+
+```java
+System.out.printf("%d\n", 10);        // decimal
+System.out.printf("%o\n", 10);        // Octal
+System.out.printf("%x\n", 10);        // hexadecimal
+
+System.out.printf("%f\n", 5.2f);      // float
+
+System.out.printf("%c\n", 'A');       // char
+System.out.printf("%s\n", "안녕하세요"); // String
+```
+
+- 자릿수 맞춰서 출력
+
+```java
+System.out.printf("%-5d\n", 123);         //123   on left
+System.out.printf("%5d\n", 1234);         // 1234 on right
+System.out.printf("%5d\n", 12345);        //12345 
+
+System.out.printf("%.2f\n", 1.23645123f); // 1.13 round up
+```
+
+## ✅ 파일 입출력
+
+- 파일 입출력 방법에 대해 직접 구현
+
+### 파일 출력
+
+- 입출력 방식 중 파일로 출력하는 방법
+    - `FileOutputStream`
+    - `FileWriter`
+    - `PrintWriter`
+
+### 파일 입력
+
+- 입출력 방식 중  파일로부터 입력 받는 방법
+    - `FileInputStream…`
+    - `BufferedReader…`
+
+### 실습 - 파일 쓰기
+
+```java
+jshell> FileWriter fw = new FileWriter("./memo.text");
+fw ==> java.io.FileWriter@5d22bbb7
+
+jshell> String memo = "헤드 라인\n";
+memo ==> "헤드 라인\n"
+
+jshell> fw.write(memo);
+
+jshell> fw.close();
+```
+
+- 항상 `close()`로 닫아줘야 한다. jshell 상으로 close를 해야 파일 쓰기가 완료된다.
+- PrintWriter
+
+```java
+jshell> PrintWriter pw = new PrintWriter("./memo2.txt");
+pw ==> java.io.PrintWriter@6f75e721
+
+jshell> pw.println(memo);
+
+jshell> pw.close()
+```
+
+- 파일 이어 쓰기
+    
+    ```java
+    jshell> FileWriter fw2 = new FileWriter("./memo.text", true);
+    fw2 ==> java.io.FileWriter@470e2030
+    
+    jshell> memo = "3월 5일 일요일";
+    memo ==> "3월 5일 일요일"
+    jshell> fw2.write(memo);
+    ```
+    
+    - append에 true를 argument로 돌려준다.
+    
+    ```java
+    jshell> PrintWriter pw2 = new PrintWriter(new FileWriter("./memo2.txt"));
+    pw2 ==> java.io.PrintWriter@e2d56bf
+    
+    jshell> pw2.println(memo);
+    
+    jshell> pw2.close();
+    ```
+    
+    - PrintWriter로 이어쓰기를 한다면, FileWriter를 새로 생성해서 인수로 넣어준다.
+
+### 실습 - 파일 읽기
+
+- bufferedReader를 이용해서 안에 FileReader를 넣고
+
+```java
+jshell> BufferedReader br = new BufferedReader(new FileReader("./memo.txt"));
+br ==> java.io.BufferedReader@12bb4df8
+
+jshell> while(true) {
+   ...>     String line = br.readLine();
+   ...>
+   ...>     if (line == null) {
+   ...>         break;
+   ...>     }
+   ...>     System.out.println(line);
+   ...> }
+헤드 라인
+3월 5일 일요일
+
+jshell> br.close();
+```
+
+- br 변수를 한줄 한줄 읽어서 출력한다.
+
+### Practice
+
+## ✅ 예외 처리
+
+- 예외 처리가 무엇인지 이해하고, 예외 처리 방법에 대해 직접 구현
+
+### 예외 (Exception)
+
+- 정상적인지 않은 Case
+    - 0으로 나누기
+    - 배열의 인덱스 초과
+    - 없는 파일 열기 등
+
+### 예외 처리 (Exception Handling)
+
+- 정상적이지 않은 Case에 대해 적절한 처리 방법
+    - try 내부에 예외가 발생할 수 있는 부분을 작성
+    - 변수 명 e는 아무거나 사용해도 괜찮다.
+
+### finally
+
+- 예외 발생 여부와 상관없이 항상 실행
+
+### throw, throws
+
+- `throw`: 예외를 발생 시킴
+- `throws`: 예외를 밖으로 전가 시킴 (함수를 호출한쪽에서 예외를 처리)
+
+### 실습
+
+```java
+jshell> try {
+   ...>     int a = 5/0;
+   ...> } catch (ArithmeticException e) {
+   ...>     System.out.println(e);
+   ...> }
+java.lang.ArithmeticException: / by zero
+```
+
+```java
+jshell> try {
+   ...>     int a = 5/0;
+   ...> } catch (ArithmeticException e) {
+   ...>     System.out.println(e);
+   ...> } finally {
+   ...>     System.out.println("finally");
+   ...> }
+java.lang.ArithmeticException: / by zero
+finally
+```
+
+```java
+jshell> try {
+   ...>     b[4] = 1;
+   ...> } catch (ArrayIndexOutOfBoundsException e) {
+   ...>     System.out.println(e);
+   ...> }
+java.lang.ArrayIndexOutOfBoundsException: Index 4 out of bounds for length 4
+```
+
+```java
+jshell> class NotTenException extends RuntimeException {}
+```
+
+```java
+public class Main {
+    public static boolean checkTen (int ten) {
+        if (ten !=10) {
+            return false;
+        }
+        return true;
+    }
+    public static boolean checkTenWithException (int ten) {
+        if (ten != 10) {
+            throw new NotTenException();
+        }
+        return true;
+    }
+}
+```
+
+```java
+jshell> checkResult = main.checkTenWithException(10);
+checkResult ==> true
+
+jshell> checkResult = main.checkTenWithException(0);
+|  Exception REPL.$JShell$41$NotTenException
+|        at Main.checkTenWithException (#11:10)
+|        at (#15:1)
+```
+
+```java
+public class Main {
+    public static boolean checkTen (int ten) {
+        if (ten !=10) {
+            return false;
+        }
+        return true;
+    }
+    public static boolean checkTenWithException (int ten) {
+        
+        try {
+            if (ten != 10) {
+                throw new NotTenException();
+            }
+        } catch (NotTenException e) {
+            System.out.print(e);
+            return false;
+        }
+        return true;
+    }
+}
+```
+
+- throws
+    
+    ```java
+    public static boolean checkTenWithThrows(int ten) throws NotTenException {
+        if (ten !=10) {
+            throw new NotTenException();
+        }
+        return true;
+    }
+    ```
+    
+    - 이 함수를 호출한 쪽에서 처리
+    
+    ```java
+    try {
+        checkResult = checkTenWithThrows(5);
+    } catch (NotTenException e) {
+        System.out.println(e);
+    }
+    
+    ```
+    
 
 ## 컬렉션 프레임워크
 
