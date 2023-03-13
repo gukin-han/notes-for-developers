@@ -73,12 +73,12 @@
 
 ## 다차원 배열
 
-## 📂 클래스와 객체
+## 클래스와 객체
 
 - 클래스와 객체의 관계를 이해
 - 기본 사용 방법과 생성자 및 this의 사용
 
-### 📄 클래스 (class)
+### 클래스 (class)
 
 - object를 정의하는 blueprint
     - 예) 자동차 설계도
@@ -91,7 +91,7 @@
 > 🧷 객체; 사물, 실체
 > 
 
-### 📄 객체, 인스턴스
+### 객체, 인스턴스
 
 - 객체 (Object)
     - class가 실체화된 것 (= instance)
@@ -99,7 +99,7 @@
     - class와 object의 관계 (📌  this object is the instance of this class)
     - class로부터 object를 선언 (인스턴스 화)
 
-### 📄 클래스 사용
+### 클래스 사용
 
 - object variable, method로 이루어짐
 
@@ -114,14 +114,14 @@
 클래스명 객체명 = new 클래스명();
 ```
 
-### 📌 `this`, `this()`
+### `this`, `this()`
 
 - `this`
     - 현재의 object 자신을 의미
 - `this()`
     - constructor 호출
 
-### 📄 생성자
+### 생성자
 
 - object가 생성될 때 자동으로 호출됨
     - `new 클래스명();`
@@ -136,7 +136,7 @@ public class 클래스명 {
 }
 ```
 
-### 💻 실습
+### 실습
 
 ```java
 class Car { // class define
@@ -204,7 +204,7 @@ moveGRANDEUR
 break active ofGRANDEUR
 ```
 
-### 📌 오버로딩 (Overloading)
+### 오버로딩 (Overloading)
 
 - 한 class 내에서 같은 이름의 method를 중복하여 정의 (📌 **polymorphism**)
 - 조건
@@ -221,7 +221,7 @@ public class 클래스명 {
 }
 ```
 
-### 💻 실습
+### 실습
 
 ```java
 class Car {
@@ -324,7 +324,7 @@ moveGRANDEUR
 break active ofGRANDEUR 
 ```
 
-### 📄 접근제한자 (Access Modifier)
+### 접근제한자 (Access Modifier)
 
 ![IMG_700FD976CCBD-1.jpeg](src/IMG_700FD976CCBD-1.jpeg)
 
@@ -338,7 +338,7 @@ break active ofGRANDEUR
 > 🧷 package; 여러 클래스가 모여있는 구분
 > 
 
-### 📌 Static
+### Static
 
 - variable이나 method의 특성을 바꾸는 키워드
 - 특징
@@ -409,9 +409,9 @@ type = rv
 🧷 만약 new를 이용해서 새로운 object를 만들었을때, static variable은 서로 공유되는 특성이 있기 때문에 값을 변경하게 되면 모든 object들이 그 값을 가지게 된다.
 > 
 
-## 📂 상속
+## 상속
 
-### 📄 상속 (Inheritance)
+### 상속 (Inheritance)
 
 - 기존 class에 기능 추가 및 재정의하여 새로운 class를 정의
     - parent class: 상속 대상이 되는 기존 class (= 상위 class, 기초 class)
@@ -433,7 +433,7 @@ class 자식 클래스명 extends 부모 클래스명 {
 
 ![IMG_C8A77B9B13F6-1.jpeg](src/IMG_C8A77B9B13F6-1.jpeg)
 
-### 📌 `super`, `super()`
+### `super`, `super()`
 
 > 🧷 `this`와 유사함
 > 
@@ -442,7 +442,7 @@ class 자식 클래스명 extends 부모 클래스명 {
 - `super()`
     - parent class의 constructor 호출
 
-### 📌 오버라이딩 (Overriding)
+### 오버라이딩 (Overriding)
 
 > 🧷 오버로딩과 구분
 > 
@@ -497,12 +497,12 @@ class Student extends Person {
 }
 ```
 
-## 📂 다형성
+## 다형성
 
 - 다형성이 무엇인지 설명
 - 다형성 개념을 이해하고 직접 구현
 
-### 📄 다형성 (Polymorphism)
+### 다형성 (Polymorphism)
 
 - 한 객체가 여러 가지 타입을 가질 수 있는 것
 - 부모클래스 타입의 참조 변수로 자식클래스 인스턴스 참조
@@ -521,7 +521,7 @@ Person p1 = new Student();
 // Student s1 = new Person(); // 불가능
 ```
 
-### 💻 **실습**
+### **실습**
 
 ```java
 class Car {
@@ -570,7 +570,7 @@ Car[] car2 = {new Car(), new FireTruck(), new Ambulance()};
         }
 ```
 
-### 📄 `instanceof`
+### `instanceof`
 
 - 실제 참조하고 있는 인스턴스의 **타입 확인**
 - return type ⇒ boolean
@@ -689,12 +689,12 @@ public class Main {
 }
 ```
 
-## 📂 추상 클래스
+## 추상 클래스
 
 - 추상 클래스가 무엇인지 설명
 - abstract를 이용하여 추상 클래스 구현
 
-### 📄 추상 메소드 (Abstract Method)
+### 추상 메소드 (Abstract Method)
 
 - 자식 클래스에서 반드시 오버라이딩 해야하는 메소드
 - 선언만하고 구현 내용 없음
@@ -703,7 +703,7 @@ public class Main {
 abstract void print();
 ```
 
-### 📄 추상 클래스 (Abstract class)
+### 추상 클래스 (Abstract class)
 
 - 하나 이상의 추상 메소드를 포함하는 클래스
 - 반드시 구현해야 하는 부분에 대해 명시적으로 표현
@@ -716,7 +716,7 @@ abstract class 클래스명 {
 }
 ```
 
-### 💻 추상 클래스 실습
+### 추상 클래스 실습
 
 ```java
 abstract class Person {
@@ -830,12 +830,12 @@ class Main {
 }
 ```
 
-## 📂 인터페이스
+## 인터페이스
 
 - 인터페이스가 무엇인지 설명할 수 있음
 - 인터페이스를 이용한 클래스 구현
 
-### 📄 인터페이스
+### 인터페이스
 
 - 다중 상속처럼 사용할 수 있는 기능
 - 추상 메소드와 상수만으로 이루어짐
@@ -851,7 +851,7 @@ class 클래스 이름 implements 인터페이스 이름 {
 }
 ```
 
-### 📄 상속과 인터페이스 동시 사용
+### 상속과 인터페이스 동시 사용
 
 - 동시 사용으로 다중 상속과 같은 효과
 
@@ -866,7 +866,7 @@ class 클래스 이름 extends 클래스 이름 implements 인터페이스이름
 } 
 ```
 
-### 💻 실습
+### 실습
 
 - orc의 공통적인 실체는 하나로 공유 → orc abstract class
 - 각각의 특성에 따라 system으로 구분 → user, npc interface
@@ -959,12 +959,12 @@ public class Main {
 }
 ```
 
-## 📂 내부 클래스, 익명 클래스
+## 내부 클래스, 익명 클래스
 
 - 내부 클래스의 개념과 종류 이해
 - 익명 클래스 직접 구현
 
-### 📄 내부 클래스 (Inner Class)
+### 내부 클래스 (Inner Class)
 
 - class in class
 
@@ -984,7 +984,7 @@ class Outer {
     - 지역 클래스 (local class)
     - 익명 클래스 (anonymous class)
 
-### 📄 익명 클래스 (Anonymous class)
+### 익명 클래스 (Anonymous class)
 
 - 이름을 가지지 않는 class
 - 선언과 동시에 객체 생성
@@ -997,7 +997,7 @@ class Outer {
 };
 ```
 
-### 💻 실습
+### 실습
 
 ```java
 class Outer {
@@ -1052,7 +1052,7 @@ public class Main {
 }
 ```
 
-## ✅ 입출력
+## 입출력
 
 - 콘솔 입출력 방법에 대해 직접 구현
 
@@ -1150,7 +1150,7 @@ System.out.printf("%5d\n", 12345);        //12345
 System.out.printf("%.2f\n", 1.23645123f); // 1.13 round up
 ```
 
-## ✅ 파일 입출력
+## 파일 입출력
 
 - 파일 입출력 방법에 대해 직접 구현
 
@@ -1243,7 +1243,7 @@ jshell> br.close();
 
 ### Practice
 
-## ✅ 예외 처리
+## 예외 처리
 
 - 예외 처리가 무엇인지 이해하고, 예외 처리 방법에 대해 직접 구현
 
